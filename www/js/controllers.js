@@ -1,14 +1,18 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
 
-.controller('ItemsCtrl', function($scope, $http, StarItems) {
+.controller('ItemsCtrl', function($scope, $http, StarItems, $cordovaInAppBrowser) {
 
-  $http.get('https://qiita.com/api/v2/items?per_page=50')
+  $http.get('https://qiita.com/api/v2/items?per_page=30')
   .success(function(items) {
     $scope.items = items;
   });
 
   $scope.checkStar = function(item) {
     StarItems.checkStar(item);
+  };
+
+  $scope.link = function(url) {
+    var ref = cordova.InAppBrowser.open(url, '_blank', 'location=no');
   };
 
 })

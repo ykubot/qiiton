@@ -1,7 +1,8 @@
 <ion-view view-title="Timeline">
   <ion-content>
     <ion-list>
-      <ion-item class="item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="{{item.url}}">
+      <ion-item class="item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap" ng-href="{{item.url}}" target="_blank">
+      <!-- <ion-item class="item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="#" target="_blank" ng-click="link(item.url)"> -->
         <img ng-src="{{item.user.profile_image_url}}">
         <h2>{{item.title}}</h2>
         <p>{{item.body}}</p>
