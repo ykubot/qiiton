@@ -38,7 +38,9 @@ angular.module('starter.services', [])
     },
     get: function(itemId) {
       for (var i = 0; i < starItems.length; i++) {
-        if (starItems[i].id === parseInt(itemId)) {
+        console.log(starItems[i].id);
+        if (starItems[i].id == itemId) {
+          console.log("success");
           return starItems[i];
         }
       }
@@ -46,8 +48,11 @@ angular.module('starter.services', [])
     },
     checkStar: function(item) {
       starItems.push(item);
-      console.log(starItems);
+      //console.log(starItems);
       return null;
+    },
+    unCheckStar: function(itemId) {
+
     }
   };
 });

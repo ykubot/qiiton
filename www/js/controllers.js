@@ -2,8 +2,9 @@ angular.module('starter.controllers', ['ngCordova'])
 
 .controller('ItemsCtrl', function($scope, $http, StarItems, $cordovaInAppBrowser) {
 
-  $http.get('https://qiita.com/api/v2/items?per_page=30')
+  $http.get('https://qiita.com/api/v2/items?per_page=10')
   .success(function(items) {
+    // console.log(items);
     $scope.items = items;
   });
 
@@ -11,8 +12,10 @@ angular.module('starter.controllers', ['ngCordova'])
     StarItems.checkStar(item);
   };
 
-  $scope.link = function(url) {
-    var ref = cordova.InAppBrowser.open(url, '_blank', 'location=no');
+  $scope.get = function(itemId) {
+    // console.log(itemId);
+    // console.log(StarItems.get(itemId));
+    return StarItems.get(itemId);
   };
 
 })
