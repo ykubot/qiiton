@@ -12,6 +12,10 @@ angular.module('starter.controllers', ['ngCordova'])
     StarItems.checkStar(item);
   };
 
+  $scope.removeStar = function(item) {
+    StarItems.removeStar(item);
+  };
+
   $scope.get = function(itemId) {
     // console.log(itemId);
     // console.log(StarItems.get(itemId));
@@ -30,8 +34,8 @@ angular.module('starter.controllers', ['ngCordova'])
   });
 
   $scope.starItems = StarItems.all();
-  $scope.remove = function(item) {
-    StarItems.remove(item);
+  $scope.removeStar = function(item) {
+    StarItems.removeStar(item);
   };
 })
 
