@@ -1,6 +1,6 @@
-angular.module('starter.controllers', ['ngCordova'])
+angular.module('starter.controllers', [])
 
-.controller('ItemsCtrl', function($scope, $http, StarItems, $cordovaInAppBrowser) {
+.controller('ItemsCtrl', function($scope, $http, StarItems, $cordovaInAppBrowser, $localStorage) {
 
   $http.get('https://qiita.com/api/v2/items?per_page=10')
   .success(function(items) {
@@ -21,6 +21,10 @@ angular.module('starter.controllers', ['ngCordova'])
     // console.log(StarItems.get(itemId));
     return StarItems.get(itemId);
   };
+
+  $scope.$storage = $localStorage.$default({
+    items: []
+  });
 
 })
 

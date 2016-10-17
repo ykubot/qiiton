@@ -1,6 +1,6 @@
-angular.module('starter.services', [])
+angular.module('starter.services', ['ngStorage'])
 
-.factory('StarItems', function() {
+.factory('StarItems', function($localStorage) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -34,25 +34,36 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return starItems;
+      // return starItems;
+      return $localStorage.items;
     },
     get: function(itemId) {
-      for (var i = 0; i < starItems.length; i++) {
+      // for (var i = 0; i < starItems.length; i++) {
+      //   // console.log(starItems[i].id);
+      //   if (starItems[i].id == itemId) {
+      //     // console.log("success");
+      //     return starItems[i];
+      //   }
+      // }
+      for (var i = 0; i < $localStorage.items.length; i++) {
         // console.log(starItems[i].id);
-        if (starItems[i].id == itemId) {
+        if ($localStorage.items[i].id == itemId) {
           // console.log("success");
-          return starItems[i];
+          return $localStorage.items[i];
         }
       }
       return null;
     },
     checkStar: function(item) {
-      starItems.push(item);
-      //console.log(starItems);
+      // starItems.push(item);
+      //$localStorage.item = item;
+      $localStorage.items.push(item);
+      console.log($localStorage.items);
       return null;
     },
     removeStar: function(item) {
-      starItems.splice(starItems.indexOf(item), 1);
+      // starItems.splice(starItems.indexOf(item), 1);
+      $localStorage.items.splice($localStorage.items.indexOf(item), 1);
     }
   };
 });
