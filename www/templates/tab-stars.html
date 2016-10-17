@@ -1,7 +1,7 @@
 <ion-view view-title="Favorites">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in starItems" type="item-text-wrap" href="{{item.url}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in starItems" type="item-text-wrap" ng-href="{{item.url}}"  target="_blank">
         <img ng-src="{{item.user.profile_image_url}}">
         <h2>{{item.title}}</h2>
         <p>{{item.body}}</p>
